@@ -34,7 +34,6 @@ public class MarkSheet
 	{
 		float maxGrade = 0;
 		
-		// computing sum of all student's grade
 		for (int studentGrade: studentGrades)
 		{
 			if(maxGrade < studentGrade)
@@ -53,7 +52,6 @@ public class MarkSheet
 	{
 		float minGrade = 101;
 	
-		// computing sum of all student's grade
 		for (int studentGrade: studentGrades)
 		{
 			if(minGrade > studentGrade)
