@@ -10,6 +10,7 @@ public class MarkSheet
 	/**
 	 * @param studentGrades is the grades of all students
 	 * @return averageGrade of all students
+	 * We get studentGrade between 0 to 100 only. and here have validate value.
 	 */
 	public float averageGrade(ArrayList<Integer> studentGrades)
 	{
@@ -29,6 +30,7 @@ public class MarkSheet
 	/**
 	 * @param studentGrades is the grades of all students
 	 * @return maxGrade of all students
+	 * We get studentGrade between 0 to 100 only. and here have validate value.
 	 */
 	public float maxGrade(ArrayList<Integer> studentGrades)
 	{
@@ -47,6 +49,7 @@ public class MarkSheet
 	/**
 	 * @param studentGrades is the grades of all students
 	 * @return minGrade of all students
+	 * We get studentGrade between 0 to 100 only. and here have validate value.
 	 */
 	public float minGrade(ArrayList<Integer> studentGrades)
 	{
@@ -65,6 +68,7 @@ public class MarkSheet
 	/**
 	 * @param studentGrades is the grades of all students
 	 * @return percentage of students passed.
+	 * We get studentGrade between 0 to 100 only. and here have validate value.
 	 */
 	public float percentageOfStudentPassed(ArrayList<Integer> studentGrades){
 		int noOfStudentPassed = 0;
