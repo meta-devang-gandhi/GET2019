@@ -100,7 +100,6 @@ public class StringOperation
 	           largestWord = word;
 	        }  
 	     } 
-	     System.out.println("length "+ length);
 	        return largestWord; 
 	}
 }
