@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class StringOperationsControllerClass
+{
+	public static void main(String[] args) {
+
+		StringOperation stringOperations = new StringOperation();
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter first String");
+		String str1 = sc.next();
+		System.out.println("Enter second String");
+		String str2 = sc.next();
+        sc.close();
+		int isEqual = stringOperations.isEqual(str1, str2);
+		if (isEqual == 1)
+		{
+			System.out.println("Strings are equal");
+		}
+		else 
+		{
+			System.out.println("Strings are not equal");
+		}
+
+		// Reverse of String
+		String revStr = stringOperations.reverse(str1);
+		System.out.println("Reverse of String is: " + revStr);
+
+		// swapping of cases of string
+		String swappedCaseString = stringOperations.swapCase(str1);
+		System.out.println("Swapped Case String is: " + swappedCaseString);
+	}	
+}
+
+
