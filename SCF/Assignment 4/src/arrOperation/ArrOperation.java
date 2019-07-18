@@ -220,7 +220,7 @@ public class ArrOperation {
 		{
 			if(arr[i] == x && arr[i+1] != indexOfY)
 			{
-				while(arr[indexOfY] != y)
+				while(arr[indexOfY] != indexOfY)
 				{
 					// finds the index of y
 					if(indexOfY >= length-1)
