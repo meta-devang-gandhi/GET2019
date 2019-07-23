@@ -27,7 +27,7 @@ public final class IntSet
 	/**
 	 * Method check the input value is member of the set or not.
 	 * @param value "Search value" 
-	 * @return if value member of set then return true else false.
+	 * @return if value is a member of set then return true else false.
 	 */
 	public boolean isMember(int value)
 	{
@@ -135,13 +135,14 @@ public final class IntSet
     	    number1 = set2.immutableArray[index];
          	if(this.isMember(number1) == false)
         	{
-    	      unionArray[indexUnionArray]=number1;
-    	      indexUnionArray++;
-    	    }
-    	    else 
-    	    {
-    	      noOfCommon++;
-    	    }
+    	           unionArray[indexUnionArray]=number1;
+    	           indexUnionArray++;
+    	        }
+    	       else 
+    	       {
+    	           noOfCommon++;
+    	       }
+		
     	    index++;
     	}
         
