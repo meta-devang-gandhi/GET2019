@@ -164,6 +164,8 @@ public final class IntSet
     	return  new IntSet(unionArray1);
     }
     
+    /** Method return the set as  array
+    */
     public int[] setAsArray() throws Exception
     {
     	IntSet set = new IntSet(this.immutableArray);
