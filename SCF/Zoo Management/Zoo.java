@@ -77,7 +77,7 @@ public class Zoo
 			System.out.println();
 			String animalCategory = scanner.next();
 			
-             flag = false;
+                        flag = false;
 			for (CategoryOfAnimals value : CategoryOfAnimals.values()) 
 			{
 				if (animalCategory.equalsIgnoreCase(value.name())) 
@@ -107,17 +107,16 @@ public class Zoo
 			{
 				System.out.println("Animal get added !");
 			}
-		}
+		  }
 		  catch(Exception e)
 		  {
 			  System.out.println(e);
 		  }
-	   }	 
+	      }	 
 		  else 
 		  {
 			System.out.println("There is no zone or cage present in the zoo. Please add a zone and cage first!");
-		}
-
+		  }
 	}
 
 	/*
@@ -131,8 +130,8 @@ public class Zoo
 		int zoneId = scanner.nextInt();
 		int indexTraversed = 0;
 		Zone zone = zoneMap.get(zoneId);
-		if (zone != null) {
-
+		if (zone != null)
+		{
 			List<Cage> cagesList = zone.getCageList();
 			try {
 				for (Cage cage : cagesList) 
@@ -171,7 +170,7 @@ public class Zoo
 			}
 			catch (Exception e) 
 			{
-                 System.out.println(e);
+                             System.out.println(e);
 			}
 		}
 		else 
@@ -205,7 +204,6 @@ public class Zoo
 					{
 						cage.animalList.remove(animal);
 						animalMap.remove(animal.uniqueIdOfAnimal);
-
 					}
 				}
 			} 
@@ -220,6 +218,7 @@ public class Zoo
 			System.out.println("Incorrect animal Id");
 			return 0;
 		}
+		
 		return 1;
 	}
 	
@@ -286,19 +285,22 @@ public class Zoo
 		{
 			System.out.println(e);
 		}
+		
 		return 1;
 	}
 
 	/**
 	 * Add new cage in zone
 	 */
-	public int addCage() {
+	public int addCage()
+	{
 		if (zoneFlag == true) 
 		{
 			cageFlag = true;
 			System.out.println("Please enter zone name and ZoneID where you want to add cage.");
 			System.out.print("zone list \n we have ");
-			for (Zone value : zoneMap.values()) {
+			for (Zone value : zoneMap.values()) 
+			{
 				System.out.print(value.getZoneType() + "(ZoneID:" + value.getUniqueZoneId() + "), \t");
 			}
 
@@ -355,6 +357,7 @@ public class Zoo
 		{
 			uniqueId += String.valueOf((int)(Math.random()*10));
 	    }
+		
 		return uniqueId;
 	}
 }
