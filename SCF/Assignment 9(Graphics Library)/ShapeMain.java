@@ -141,7 +141,8 @@ public class ShapeMain
                     int yCoordinate = scanner.nextInt();
 
                     Point point1 = new Point(xCoordinate, yCoordinate);
-                    for (Shape value: screen.getListOfShapesEnclosingThePoint(point1)) {
+                    for (Shape value: screen.getListOfShapesEnclosingThePoint(point1)) 
+                    {
                         System.out.println("Shape Type : " + value.getType().name());
                         System.out.println("Origin : " + value.getOrigin());
                         System.out.println("Area : " + value.getArea());
