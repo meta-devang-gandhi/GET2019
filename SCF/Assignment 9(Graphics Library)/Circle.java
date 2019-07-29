@@ -19,18 +19,18 @@ public class Circle implements Shape
 	       
     }
 	
-    //method return the area.
+        //method return the area.
 	@Override
 	public double getArea() 
 	{
-		return (PI * radius * radius);
+	     return (PI * radius * radius);
 	}
     
 	//method return the perimeter
 	@Override
 	public double getPerimeter() 
 	{
-		return (2 * PI * radius);
+	     return (2 * PI * radius);
 	}
     
 	//method return the origin coordinates.
@@ -66,7 +66,7 @@ public class Circle implements Shape
 		//calculating coordinates of center
 		m = Math.sqrt( (xCoordinatePoint * xCoordinatePoint) + (yCoordinatePoint * yCoordinatePoint) ) + radius;
 		centreX = ( m * xCoordinatePoint ) / ( m - n );
-		centreY=( m * yCoordinatePoint ) / ( m-n);
+		centreY = ( m * yCoordinatePoint ) / ( m - n);
 		
 		//calculate distance of center from the point given
 		double distanceToPoint = (double) Math.sqrt( (( x - centreX ) * ( x - centreX )) + (( y - centreY ) * ( y - centreY )) );
