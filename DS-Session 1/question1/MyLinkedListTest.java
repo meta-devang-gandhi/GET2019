@@ -1,11 +1,8 @@
 package question1;
 
-
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,8 +22,7 @@ public class MyLinkedListTest
 	    response = list.addNode(response.getType(), "6");
 	    response = list.addNode(response.getType(), "7");
 	    response = list.addNode(response.getType(), "8");
-	    response = list.addNode(response.getType(), "9");
-	    
+	    response = list.addNode(response.getType(), "9");	    
 	}
 	
 	@Test
@@ -45,9 +41,6 @@ public class MyLinkedListTest
 			node = node.next;
 		}
 		
-		 assertArrayEquals(expected, actual);
-		
+		 assertArrayEquals(expected, actual);	
 	}
-
-
 }
