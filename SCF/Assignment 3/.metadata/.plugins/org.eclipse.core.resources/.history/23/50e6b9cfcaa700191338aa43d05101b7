@@ -1,0 +1,23 @@
+
+public class ShapOfArea 
+{
+   public double circleOfArea(double radius)
+   {
+	   return ((double)22/(double)7)*radius*radius ;
+   }
+  
+    public double triangleOfArea(double width, double height)
+    {
+    	return ((double)1/(double)2)*width*height;
+    }
+    
+    public double rectangleOfArea(double width, double height)
+    {
+    	return  width*height;
+    }
+    
+    public double squareOfArea(double width)
+    {
+    	return  width*width;
+    }
+}

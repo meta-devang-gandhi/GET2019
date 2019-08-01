@@ -1,0 +1,10 @@
+
+public interface Area
+{	
+	/**
+	 * Find area of shape
+	 * @return area of shape in double
+	 */
+	public double getArea();
+
+}
