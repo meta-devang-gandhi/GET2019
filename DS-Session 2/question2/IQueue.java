@@ -5,7 +5,7 @@ package question2;
  */
 public interface IQueue 
 {
-    //Method add element to the queue if its not full	
+        //Method add element to the queue if its not full	
 	public boolean enQueue(int value)throws Exception;
 	
 	// Method remove element from the queue
