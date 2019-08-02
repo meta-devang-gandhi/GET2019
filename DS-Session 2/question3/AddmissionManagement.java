@@ -102,7 +102,7 @@ public class AddmissionManagement
 				 * if course is not allocated because seats not available than
 				 * adding name in excel file and assigning not allocated  
 				 */
-				if(!isCourseAllocated)
+				if(isCourseAllocated == false)
 				{
 					courseAllocationSheet.addCell(studentName);
 					Label courseAllocated = new Label(1,studentIndex,"Not Allocated");
