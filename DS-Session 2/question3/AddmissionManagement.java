@@ -67,18 +67,18 @@ public class AddmissionManagement
 			int totalCourse = studentSheet.getColumns()-1;
 
 			//Reading student name one by one
-			for(int studentIndex =1; studentIndex <=numberOfStudent; studentIndex++)
+			for(int studentIndex = 1; studentIndex <= numberOfStudent; studentIndex++)
 			{
 				boolean isCourseAllocated = false;
 				
 				//reading name of student from sheet
-				Label studentName = new Label(0,studentIndex,studentSheet.getCell(0,studentIndex).getContents());
+				Label studentName = new Label(0,studentIndex, studentSheet.getCell(0,studentIndex).getContents());
 
 				//reading the preferred courses of selected student one by one
 				for(int courseIndex =1; courseIndex <= totalCourse; courseIndex++)
 				{
 					//reading the course from sheet
-					String preferredCourse= studentSheet.getCell(courseIndex, studentIndex).getContents();
+					String preferredCourse = studentSheet.getCell(courseIndex, studentIndex).getContents();
 
 					/*
 					 * if seats available for course than allocating the course to student
@@ -162,7 +162,7 @@ public class AddmissionManagement
 			 * creating index which contain column index where course names are stored
 			 * which is 0 because course name stored in first column and index start from 0
 			 */
-			int courseNamecolIndex =0;
+			int courseNamecolIndex = 0;
 			
 			/*
 			 * creating index which contain column index where available seats are stored
@@ -174,7 +174,7 @@ public class AddmissionManagement
 			 * creating index which contain row index from important data start
 			 * which is 1 because first is heading
 			 */
-			int courseRowIndex =1;
+			int courseRowIndex = 1;
 			
 			//reading courses and available seats and adding to HashMap
 			while(courseRowIndex <= totalCourses)
