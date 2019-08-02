@@ -1,16 +1,10 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
-
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class AddmissionManagementTest 
 {
-	/**
-	 * This test method test allocateCourses method of AddmissionManagement Class
-	 */
 	@Test
 	public void allocateCoursesPositiveCasesTest() 
 	{	
