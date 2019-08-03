@@ -3,8 +3,8 @@ package question1;
 /**
  *Create a employee.
  */
-public class Employee {
-
+public class Employee 
+{
 	private int employeeID = 0;
 	private String employeeName = null;
 	private String employeeAddress = null;
@@ -23,14 +23,14 @@ public class Employee {
 		return this.employeeID == ((Employee)e).employeeID;
 	}
 	
-	//Returns a hash code value for the object
-	@Override
+	 //Returns a hash code value for the object
+	 @Override
 	 public int hashCode() 
 	 { 
 	     return this.employeeID; 
-     } 
+         } 
 	
-	 //String representation of the object.
+	//String representation of the object.
 	@Override
 	public String toString() 
 	{ 
