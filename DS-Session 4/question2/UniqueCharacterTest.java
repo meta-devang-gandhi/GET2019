@@ -10,7 +10,7 @@ public class UniqueCharacterTest
 	public void testCountUniqueCharater_Success() 
 	{
 		int result = new UniqueCharacter().countUniqueCharacter("devannngg gggggadhi");	
-		assertEquals(6, result);
+		assertEquals(8, result);
 	}
 
 	@Test
