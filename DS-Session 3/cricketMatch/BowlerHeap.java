@@ -12,8 +12,8 @@ public class BowlerHeap
 	/**
 	 * Constructor to initialize the data members
 	 */
-	public BowlerHeap(int numberOfBowlers) {
-		
+	public BowlerHeap(int numberOfBowlers) 
+	{
 		this.numberOfBowlers = numberOfBowlers;
 		this.size = 0;
 		bowlersList = new Bowler[this.numberOfBowlers + 1];
@@ -25,9 +25,9 @@ public class BowlerHeap
 	 * @return position of parent.
 	 */
 	public int returnParent(int position) 
-    { 
-        return position / 2; 
-    } 
+        { 
+            return position / 2; 
+        } 
 
 	/**
 	 * Returns the left child of the bowler at position
@@ -35,9 +35,9 @@ public class BowlerHeap
 	 * @return position of left child.
 	 */
 	public int returnLeftChild(int position) 
-    { 
-        return (2 * position); 
-    } 
+       { 
+           return (2 * position); 
+       } 
 	
 	/**
 	 * Returns the right child of the bowler at position
@@ -45,9 +45,9 @@ public class BowlerHeap
 	 * @return Position of right child.
 	 */
 	public int returnRightChild(int position) 
-    { 
-        return ((2 * position) + 1); 
-    }
+        { 
+             return ((2 * position) + 1); 
+        }
 	
 	/**
 	 *Swaps the bowlers.
@@ -67,21 +67,21 @@ public class BowlerHeap
 	 * @return true if element have leaf else false.
 	 */
 	public boolean isLeaf(int position) 
-    { 
+        { 
         if (position > (size / 2) && position < size) 
         { 
             return true; 
         }
         
         return false; 
-    } 
+        } 
 	
 	/**
 	 * Method arrange the bowlers as maxheap.
 	 * @param position 
 	 */
 	public void maxHeap(int position) 
-    { 
+        { 
         if (isLeaf(position)) 
             return; 
         
@@ -106,28 +106,27 @@ public class BowlerHeap
 	 * @param bowler
 	 */
 	void insertBowler(Bowler bowler) 
-    { 
-		bowlersList[++size] = bowler; 
-        int current = size; 
-        while ((current != 1) && (bowlersList[current].getNumberOfBallLeft() > bowlersList[returnParent(current)].getNumberOfBallLeft())) 
         { 
+	   bowlersList[++size] = bowler; 
+           int current = size; 
+            while ((current != 1) && (bowlersList[current].getNumberOfBallLeft() > bowlersList[returnParent(current)].getNumberOfBallLeft())) 
+            { 
             swapBowlers(current, returnParent(current)); 
             current = returnParent(current); 
-        }
-
-    } 
+            }
+          } 
 
 	/**
 	 * This method extracts the bowler which has the maximum number of balls
 	 * @return 
 	 */
 	public Bowler extractBowler() 
-    { 
+        { 
         Bowler poppedBowler = bowlersList[1]; 
         bowlersList[1] = bowlersList[size--]; 
         maxHeap(1);
         
         return poppedBowler; 
-    } 
+        } 
 	
 }
