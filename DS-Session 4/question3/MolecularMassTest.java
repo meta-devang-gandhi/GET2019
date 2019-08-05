@@ -4,11 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * This class contains the test methods to test the methods of MolecularMass class
- * @author Jugal
- * Dated 08/02/2019
- */
+
 public class MolecularMassTest {
 	
 	@Test
