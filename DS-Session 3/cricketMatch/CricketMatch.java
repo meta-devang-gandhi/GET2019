@@ -25,7 +25,7 @@ public class CricketMatch
 	 *Bowler is selected and the match is played
 	 * @return  list of bowlers.
 	 */
-	List<Bowler> playMatch()
+	public List<Bowler> playMatch()
 	{
 		while(bowlsToBePlayed > 0)
 		{
