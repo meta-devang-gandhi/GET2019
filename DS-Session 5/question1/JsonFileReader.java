@@ -54,7 +54,7 @@ public class JsonFileReader
         	e.printStackTrace();
         }
         
-       splitKeyAndValueOfJsonArray();
+      
 	}
 	
 	/*
@@ -91,31 +91,43 @@ public class JsonFileReader
 			dictionary.add(node);		
         }
 		
+		
+	}
+	
+	public void callMethod()
+	{
 		//Call the method of DictionaryImplimentation class.
-		System.out.println("-----------------------------");
-		dictionary.inorder();
-		System.out.println("-----------------------------");
-		dictionary.delete(8);
-		dictionary.inorder();
-		
-		Map<Integer,String>list =dictionary.sorted();
-		System.out.println("-----------------------------");
-		for(Entry<Integer, String> list1 : list.entrySet())
-		{
-			System.out.println("KEY "+list1.getKey() + "value "+list1.getValue());
-		}
-		
-		Map<Integer,String>list11 =dictionary.sortedInRange(5,19);
-		System.out.println("-----------------------------");
-		for(Entry<Integer, String> list1 : list11.entrySet())
-		{
-			System.out.println("KEY "+list1.getKey() + "value "+list1.getValue());
-		}
+				System.out.println("-----------------------------");
+				dictionary.inorder();
+				System.out.println("-----------------------------");
+				dictionary.delete(8);
+				dictionary.inorder();
+				
+				Map<Integer,String>list =dictionary.sorted();
+				System.out.println("-----------------------------");
+				for(Entry<Integer, String> list1 : list.entrySet())
+				{
+					System.out.println("KEY "+list1.getKey() + "value "+list1.getValue());
+				}
+				
+				Map<Integer,String>list11 =dictionary.sortedInRange(10,17);
+				System.out.println("-----------------------------");
+				for(Entry<Integer, String> list1 : list11.entrySet())
+				{
+					System.out.println("KEY "+list1.getKey() + "value "+list1.getValue());
+				}		
+	}
+	
+	public DictionaryImplimentation getObj()
+	{
+		return dictionary;
 	}
 	
 	public static void main(String arg[])
 	{
 		JsonFileReader js = new JsonFileReader();
 		js.readJsonFile();	
+		js.splitKeyAndValueOfJsonArray();
+		js.callMethod();
 	}
 }
