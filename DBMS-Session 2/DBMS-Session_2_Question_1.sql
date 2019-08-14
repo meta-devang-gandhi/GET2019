@@ -76,3 +76,20 @@ CREATE TABLE ItemOrder
   Quantity INT NOT NULL,
   UnitPrice INT NOT NULL REFERENCES Product(UnitPrice)
 );
+
+
+SHOW tables;
+
+DROP table product;
+
+
+CREATE TABLE Product
+(
+  ProductId INT NOT NULL AUTO_INCREMENT,
+  Quantity INT NULL ,
+  ProductDescription VARCHAR(200) NULL ,
+  ProductTitle VARCHAR(45) NULL ,
+  UnitPrice INT NULL ,
+  QuantityOfSEll INT NOT NULL ,
+  PRIMARY KEY (ProductId) 
+);
