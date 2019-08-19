@@ -7,14 +7,14 @@ GROUP BY o.UserId;
 #Display the top 10 Shoppers who generated maximum number of revenue in last 30 days.
 SELECT u.UserId, u.UserName, sum(o.OrderAmount) FROM User AS u 
 INNER JOIN Orders AS o ON u.UserId = o.userId
-WHERE DATEDIFF(curdate(), o.OrderDate ) < 30
+WHERE DATEDIFF(curdate(), o.OrderDate ) <= 30
 GROUP BY o.UserId
 LIMIT 10;
 
 #Display top 20 Products which are ordered most in last 60 days along with numbers.
 SELECT t.ProductId, count(t.ProductId) AS NoOfOrderOfProduct FROM ItemOrder t
 INNER JOIN Orders o ON t.OrderId = o.OrderId 
-WHERE  DATEDIFF(curdate(), o.OrderDate ) < 60
+WHERE  DATEDIFF(curdate(), o.OrderDate ) <= 60
 GROUP BY ProductId
 ORDER BY NoOfOrderOfProduct DESC
 LIMIT 20;
