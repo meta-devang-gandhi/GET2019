@@ -2,7 +2,7 @@
 #with latest ordered items should be displayed first for last 60 days.
         
 CREATE VIEW OrderInformation
-AS SELECT o.OrderId, p.ProductTitle, p.UnitPrice, u.UserId, u.EmailId, o.OrderDate, io.Status
+AS SELECT o.OrderId, p.ProductTitle, p.UnitPrice, u.UserId, u.EmailId, o.OrderDate, io.Status, io.Quantity
 FROM Orders AS o INNER JOIN ItemOrder AS io ON io.OrderId  = o.OrderId 
 INNER JOIN Product P ON p.ProductId = io.ProductId
 INNER JOIN User AS u ON u.UserId = o.UserId
@@ -13,8 +13,9 @@ SELECT ProductTitle FROM OrderInformation
 WHERE Status = 'Shipped';
 
 #Use the above view to display the top 5 most selling products.
-SELECT productTitle, count(productTitle) AS 'TotalSell'
+SELECT productTitle, sum(Quantity) AS 'TotalSell'
 From orderInformation
 GROUP BY productTitle
-order by totalSell desc;
+order by totalSell desc
+LIMIT 5;
 
