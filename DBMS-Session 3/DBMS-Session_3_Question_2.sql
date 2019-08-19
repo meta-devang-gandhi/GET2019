@@ -1,5 +1,5 @@
 #1 Display the list of products (Id, Title, Count of Categories) which fall in more than one Categories.
-SELECT p.ProductId, p.ProductTitle, count(cp.CategoryId) AS CountOfCategoriesfrom FROM Product AS p
+SELECT p.ProductId, p.ProductTitle, count(cp.CategoryId) AS CountOfCategories FROM Product AS p
 INNER JOIN CategoryProductMap AS cp ON p.ProductId = cp.ProductId
 GROUP BY cp.ProductId;
 
