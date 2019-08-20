@@ -1,7 +1,5 @@
 package JDBC;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -9,17 +7,14 @@ import java.sql.SQLException;
  */
 public class DeleteProduct 
 {
+	MethodClass methodObj = new MethodClass();
+	
 	 public int getDeleteProductNumber()
 	 {
-		 Connection connection =  null;
-		 PreparedStatement statement = null;
-		 Connector connector = new Connector("StoreFront");
 		 try
 		 {
-			 connection = connector.connectedToDataBase();
-			String query = new Query().deleteProductQuery();
-			 statement = connection.prepareStatement(query);
-		     return  statement.executeUpdate();
+			 String query = Query.deleteProductQuery();
+		     return  methodObj.getConnection(query).executeUpdate();
 		 }
 		 catch(SQLException e)
 		 {
@@ -31,15 +26,7 @@ public class DeleteProduct
 	    }
 		  finally 
 	     {
-	       try 
-	       { 
-	    	   statement.close();
-	    	   connection.close();
-		   }
-		 	catch (SQLException e)
-		    {
-		   	  e.printStackTrace();
-		    }
+	       methodObj.close();
 	    }
 		 
 		 return -1;
@@ -49,5 +36,5 @@ public class DeleteProduct
 	 {
 		 DeleteProduct deleteproduct = new DeleteProduct();
 		 System.out.println(deleteproduct.getDeleteProductNumber());
-	   }
+	  }
 }

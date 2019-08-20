@@ -1,42 +1,44 @@
 package JDBC;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 
 /**
  *Class to get user order list.
  */
 class UserOrders 
 {
-	int shopperId;
-
+	 int shopperId;
+     MethodClass methodObj = null;
+     
 	public UserOrders(int id)
 	{
     	this.shopperId = id;
+    	methodObj = new MethodClass();
 	}
 			
 	/**
 	 * Method to get user order list.
 	 */
-    public void getUserOrder()
+    public Map<Integer, String> getUserOrder()
     {
-    	Connection connection =  null;
-        PreparedStatement statement = null;
-        Connector connector = new Connector("StoreFront");
         ResultSet rSet = null;
+        Map<Integer, String> userOrder = new LinkedHashMap<Integer, String>();
 	    try
 	    {
-	    	connection = connector.connectedToDataBase();
-	    	String query = new Query().userOrderQuery(shopperId);
-	    	statement = connection.prepareStatement(query);
-	    	rSet =  statement.executeQuery(query);
-	    	
+	    	String query = Query.userOrderQuery(shopperId);
+	    	rSet =  methodObj.getConnection(query).executeQuery(query);
+	        int i = 1;
 	    	while(rSet.next())
 	    	{
 	    		System.out.println(rSet.getString(1)+" "+rSet.getString(2)+" "+ rSet.getString(3));
+	    		userOrder.put(i++, rSet.getString(1));
 	    	}
+	    	
+	    	return userOrder;
 	    }
 	    catch(SQLException e)
 	    {
@@ -49,16 +51,20 @@ class UserOrders
 	    finally 
 	    {
 	       try 
-	       { 
-	    	   statement.close();
-	    	   rSet.close();
-	    	  connection.close();
+	       {   
+	    	   if(rSet != null)
+	    	   {
+	    	     rSet.close();
+	    	   }
+	    	   methodObj.close();
 	       }
 	    	catch (SQLException e)
 	       {
 	    	  e.printStackTrace();
 	      }
 	    }
+	    
+		return userOrder;
      }
     
     public static void main(String arg[])

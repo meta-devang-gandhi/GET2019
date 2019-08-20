@@ -10,7 +10,7 @@ public class Query
 	 * @param shopperId
 	 * @return
 	 */
-   public String userOrderQuery(int shopperId)
+   public static String userOrderQuery(int shopperId)
    {
 	   String query = "Select DISTINCT o.orderId, o.OrderDate, o.orderAmount "
    			+ "from Orders o "
@@ -25,7 +25,7 @@ public class Query
     * Method have query for delete product.
     * @return
     */
-   public String deleteProductQuery()
+   public static String deleteProductQuery()
    {
 	   String query = "UPDATE Product  p LEFT OUTER JOIN OrderItem  io ON p.productId = io.productId " 
 				 +"LEFT OUTER JOIN Orders  o ON  o.orderId = io.orderId "
@@ -40,7 +40,7 @@ public class Query
     * Method have query for batch images insert.
     * @return
     */
-   public String BatchImageInserts()
+   public static  String BatchImageInserts()
    {
 	   String query = "INSERT INTO storefront.Image "
 				+ "(ImageName, ProductId) VALUES (?, ?);";
@@ -51,7 +51,7 @@ public class Query
     * Method have query for get parent category.
     * @return
     */
-   public String ParentCategoryQuery()
+   public static String ParentCategoryQuery()
    {
 	   String query = "SELECT c.CategoryId AS ParentCategory , c.CategoryName, count(c.categoryId) AS NoOfSubChild "
  			  +"FROM category c INNER JOIN category p "

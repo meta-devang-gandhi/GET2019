@@ -1,33 +1,32 @@
 package JDBC;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *Class to get parent category list along with its subchild category number.
  */
 public class ParentCategory 
 {
-    public void getParentCategory()
+	MethodClass methodObj = new MethodClass();
+    public  Map<String, String> getParentCategory()
     {
-    	 Connection connection =  null;
-		 PreparedStatement statement = null;
-		 Connector connector = new Connector("StoreFront");
 		 ResultSet rSet = null;
+		 Map<String, String> patentCategoryList = new LinkedHashMap<String, String>();
 		 try
 		    {
-		    	connection = connector.connectedToDataBase();
-		    	String query = new Query().ParentCategoryQuery();
-		    	
-		    	statement = connection.prepareStatement(query);
-		    	rSet =  statement.executeQuery(query);
+		    	String query = Query.ParentCategoryQuery();
+		    	rSet =  methodObj.getConnection(query).executeQuery(query);
 		    	
 		    	while(rSet.next())
 		    	{
 		    		System.out.println(rSet.getString(1)+" "+rSet.getString(2)+" "+ rSet.getString(3));
+		    		patentCategoryList.put(rSet.getString(1),  rSet.getString(3));
 		    	}
+		    	
+		    	return patentCategoryList;
 		    }
 		    catch(SQLException e)
 		    {
@@ -41,15 +40,16 @@ public class ParentCategory
 		    {
 		       try 
 		       { 
-		    	   statement.close();
 		    	   rSet.close();
-		    	  connection.close();
+		    	   methodObj.close();
 		       }
 		    	catch (SQLException e)
 		       {
 		    	  e.printStackTrace();
 		      }
 		    }
+		 
+		return patentCategoryList;
     }
     
     public static void main(String arg[])

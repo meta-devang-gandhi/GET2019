@@ -1,6 +1,5 @@
 package JDBC;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -10,25 +9,20 @@ import java.sql.SQLException;
 public class BatchImageInserts
 {
 	int productId;
+	MethodClass methodObj = null;
 	public BatchImageInserts(int numId)
     {
 		productId = numId;
+		methodObj = new MethodClass();
 	}
 	
 	public void batchInsert() 
 	{
 		PreparedStatement statement = null;
-		Connector connector = new Connector("storefront");
-		Connection connection = null;
-		
 		try 
 		{
-			connection = connector.connectedToDataBase();
-			
-			String query  = new Query().BatchImageInserts();
-			
-			statement = connection.prepareStatement(query);
-			
+			String query  = Query.BatchImageInserts();
+		     statement = methodObj.getConnection(query);
 			int size = 9, row = 0;
 
 			for (row = 0; row < size; row++) 
@@ -59,8 +53,8 @@ public class BatchImageInserts
 		{
 			try 
 			{
-				statement.close();
-				connection.close();
+				statement.close();	
+				methodObj.close();
 			} 
 			catch (SQLException e) 
 			{
