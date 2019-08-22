@@ -9,10 +9,16 @@ DECLARE NoOfProductInMonth INT;
 
 DROP TEMPORARY TABLE IF EXISTS ordersDetails ;
 CREATE TEMPORARY TABLE IF NOT EXISTS ordersDetails
-SELECT ot.ProductId, ot.Quantity, o.OrderId, o.OrderDate FROM Orders o
+SELECT 
+       ot.ProductId, 
+       ot.Quantity, 
+       o.OrderId, 
+       o.OrderDate 
+FROM Orders o
 INNER JOIN OrderItem ot
 ON o.OrderId = ot.OrderId
-WHERE MONTH(o.OrderDate) = month1 AND YEAR(o.OrderDate) = year1;
+WHERE MONTH(o.OrderDate) = month1 
+       AND YEAR(o.OrderDate) = year1;
 
 SET NoOfProductInMonth = (SELECT sum(Quantity) FROM ordersDetails);
 
