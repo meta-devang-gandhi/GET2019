@@ -50,8 +50,10 @@ public class Edge implements Comparator<Edge>
 	/**
 	 * Comparator for sorting edge collection based on edge's weight
 	 */
-	public static final Comparator<Edge> sortByWeight = new Comparator<Edge>() {
-		public int compare(Edge e1, Edge e2) {
+	public static final Comparator<Edge> sortByWeight = new Comparator<Edge>() 
+	{
+		public int compare(Edge e1, Edge e2) 
+		{
 			return e1.getWeight() - e2.getWeight();
 		}
 	};
