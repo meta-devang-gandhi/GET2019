@@ -34,16 +34,18 @@ public class Pair implements Comparator<Pair>
 		return  this.vertex;
 	}
 	
-	public static final Comparator<Pair> sortPairByWeight = new Comparator<Pair>() {
+	public static final Comparator<Pair> sortPairByWeight = new Comparator<Pair>() 
+	{
 		@Override
-		public int compare(Pair pair1, Pair pair2) {
+		public int compare(Pair pair1, Pair pair2)
+		{
 			return pair1.getWeight() - pair2.getWeight();
 		}
 	};
 
 	@Override
-	public int compare(Pair o1, Pair o2) {
-		// TODO Auto-generated method stub
+	public int compare(Pair o1, Pair o2) 
+	{
 		return 0;
 	}
 
