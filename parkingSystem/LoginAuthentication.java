@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *Servlet of login authentication 
+ */
 @WebServlet("/loginAuthentication")
 public class LoginAuthentication extends HttpServlet{
 
@@ -17,6 +20,7 @@ public class LoginAuthentication extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response){
 		 PreparedStatement statement = null;
+		 ResultSet rs = null;
 		try{
 			System.out.println("login authentic");
 			String email = request.getParameter("email");
@@ -25,38 +29,52 @@ public class LoginAuthentication extends HttpServlet{
 			String query = Query.getEmployeePasswordWithId();
 			 statement = Statements.getPrepareStatement(query);
 			 statement.setString(1, email);
-			 ResultSet rs = statement.executeQuery();
+			  rs = statement.executeQuery();
 			
 			 int empId = 0;
 			 String fetchPassword = null;
-			try{
+			
+			 try{
 				while(rs.next())
 				{
 				 empId = rs.getInt("Id");
 				 fetchPassword = rs.getString("password");
 				}
-			}catch(SQLException e){
-				// response.getWriter().println("Sorry, email is wrong !");  
+			}catch(SQLException e){ 
 				System.out.println("email wromg  "+e.getMessage());
 		          request.getRequestDispatcher("LoginPage.html").forward(request, response);	 
 			}
 			
 			if(password.equals(fetchPassword)){
-				System.out.println("passowrd come");
 				 request.getRequestDispatcher("HomePage?empId="+empId).include(request, response);
 			}else{
-				// response.getWriter().println("Sorry, password is wrong !");  
 				System.out.println("password wromg  ");
 		          request.getRequestDispatcher("LoginPage.html").include(request, response);	
 			}
 			
-		}catch(Exception e)
-		{
+		}catch(SQLException e1){
+			e1.printStackTrace(); 
+		}catch(Exception e){
 			try {
 				response.getWriter().println(e.getMessage());
 			} catch (IOException e1) {
 				e1.printStackTrace();
-			}
-		}
+			  }
+		}finally{
+				try {
+					if(statement != null){
+							statement.close();
+						} 
+					if(rs != null){
+						rs.close();
+					}
+					Statements.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}catch (Exception e) {
+					e.printStackTrace();
+			 }
+		   }
 	}
 }
+

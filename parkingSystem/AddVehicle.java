@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *Servlet of add vehicle form.
+ */
 @WebServlet("/VehicleForm")
 public class AddVehicle extends HttpServlet{
 

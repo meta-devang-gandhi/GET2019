@@ -1,6 +1,5 @@
 package com.parkingSystem;
 
-
 import java.io.IOException;  
 import java.io.PrintWriter;  
   
@@ -12,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;  
 import javax.servlet.http.HttpSession;  
 
+/**
+ *Servelet for log out.
+ */
 @WebServlet("/Logout")  
 public class LogOut extends HttpServlet {  
 
@@ -22,9 +24,8 @@ public class LogOut extends HttpServlet {
 			try {
 				out = response.getWriter();
 			
-            out.print("You are successfully logged out!"
-            		+ "</br></br>"); 
-            request.getRequestDispatcher("login.html").include(request, response);  
+            //out.print("You are successfully logged out!"); 
+            request.getRequestDispatcher("LoginPage.html").include(request, response);  
               
             HttpSession session=request.getSession();  
             session.invalidate();  
@@ -34,6 +35,8 @@ public class LogOut extends HttpServlet {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}catch(Exception e){
+		   e.printStackTrace();	
 		}
     }  
 } 

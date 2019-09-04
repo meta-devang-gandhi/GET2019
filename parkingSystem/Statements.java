@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *Class for create connection and statement .
+ */
 public class Statements {
 
 	 static Connection connection =  null;
@@ -30,6 +33,7 @@ public class Statements {
         return statement;	
     }
     
+    //Method for close connection and statement. 
     protected static void close(){
     	try{
     		statement.close();

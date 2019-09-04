@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- *Class connected to database.
+ *Class connected to database and return the connection.
  */
 public class DataBaseConnector {
 	
@@ -19,9 +19,9 @@ public class DataBaseConnector {
        protected static Connection getConnection() {
     	  
     	   try { 
-    	        Properties properties = new Properties();
+    	          Properties properties = new Properties();
     	   
-			    properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
+			       properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
 		 
 		    	   String url = properties.getProperty("jdbc.url");
 		    	   String driver = properties.getProperty("jdbc.driver");
@@ -29,7 +29,9 @@ public class DataBaseConnector {
 		    	   String password = properties.getProperty("jdbc.password");
   		   
  		           Class.forName(driver);
+ 		           
 			       return DriverManager.getConnection(url, userName, password);
+			       
  		} catch (ClassNotFoundException e) {
  		    throw new IllegalStateException("Cannot find the driver in the classpath!", e);
  		}

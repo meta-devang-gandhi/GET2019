@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Servelet of update form.
+ */
 @WebServlet("/UpdateDetailsPage")
 public class UpdateDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,10 +23,6 @@ public class UpdateDetails extends HttpServlet {
 		try {
 				out = response.getWriter();
 			
-	//		response.getWriter().println(context.getAttribute("name"));
-	//		response.getWriter().println(context.getAttribute("email"));
-	//		response.getWriter().println(context.getAttribute("empId"));
-	//		response.getWriter().println(context.getAttribute("vehicleType"));
 			String name = null, email = null, vehicleType = null, vehicleNumber = null, vehicleIdentification = null ;
 			long ContactNumber = 0;
 			name = (String) context.getAttribute("name");
@@ -32,12 +31,11 @@ public class UpdateDetails extends HttpServlet {
 			vehicleNumber = (String) context.getAttribute("vehicleNumber");
 			vehicleIdentification = (String) context.getAttribute("vehicleIdentification");
 			ContactNumber = (long) context.getAttribute("contactNumber");
+		
 			out.println("<div align= 'center'>");
 			out.println("<h1>Update Form</h1>");
-	//        int empId = Integer.parseInt(request.getParameter("empId"));
-	//		out.print("<form action='./InsertVehicleData?empId="+empId+"' method='post'>");  
-	        
-			out.println("<form action ='Update' method='get'>");
+
+	    	out.println("<form action ='Update' method='get'>");
 			out.print("Full Name:<input name='name' value="+name+" minlength='2'  /><br><br>");
 			out.print("Email:<input name='email' value="+email+"  /><br><br>");
 			out.print("Vehicle Type:<input name='vehicleType' value="+vehicleType+"  /><br><br>");
@@ -49,10 +47,11 @@ public class UpdateDetails extends HttpServlet {
 			out.println("</form>");
 			out.println("</div>");
 		
+			out.close();
 	     } catch (IOException e) {
-		// TODO Auto-generated catch block
 		      e.printStackTrace();
-		      System.out.println(e.getMessage());
-	       }
+	       }catch (Exception e) {
+			      e.printStackTrace();
+		       }
 	}
 }

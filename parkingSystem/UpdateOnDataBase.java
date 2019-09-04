@@ -1,7 +1,6 @@
 package com.parkingSystem;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -20,36 +19,42 @@ public class UpdateOnDataBase extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  {
 		ServletContext context=getServletContext();  
-		PrintWriter out;
 		 PreparedStatement statement = null;
 		try {
-			 out = response.getWriter();
 			int empId = (int) context.getAttribute("empId");
-			System.out.println(empId);
 			    String query = Query.updateEmployeeDetails();  
 			    statement = Statements.getPrepareStatement(query);
 			    statement.setString(1, request.getParameter("name"));
 			    statement.setString(2, request.getParameter("email"));
-			    //statement.setLong(3, Long.parseLong(request.getParameter("ContactNumber")));
+			    statement.setLong(3, Long.parseLong(request.getParameter("ContactNumber")));
 			    statement.setString(3, request.getParameter("vehicleType"));
 			    statement.setString(4, request.getParameter("vehicleNumber"));
 			    statement.setString(5, request.getParameter("vehicleIdentification"));
 			    statement.setInt(6,  empId);
-			    if(statement.executeUpdate() > 0)
-			    {
+			    
+			    if(statement.executeUpdate() > 0) {
 			    	RequestDispatcher rd=request.getRequestDispatcher("HomePage?empId ="+empId); 
 			    	rd.include(request, response);
 			    }
-			    
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+				try {
+					if(statement != null){
+							statement.close();
+						} 
+					Statements.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}catch (Exception e) {
+					e.printStackTrace();
+			 }
+		   }
 	}
-
 }

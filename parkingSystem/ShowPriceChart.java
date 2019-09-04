@@ -11,22 +11,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *Sevlet of show the price chart of vehicle pass.
+ */
 @WebServlet("/showPriceChart")
 public class ShowPriceChart extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
         
 	  protected void doPost(HttpServletRequest request, HttpServletResponse response){
+		  PrintWriter out = null;
+		  PreparedStatement statement = null;
+		  ResultSet rs = null;
 		  try {
-			PrintWriter out = response.getWriter();
+			 out = response.getWriter();
 			
 			 int empId = Integer.parseInt(request.getParameter("empId"));
 			 String type = request.getParameter("type");
-			 PreparedStatement statement = null;
 			 String query = Query.getVehiclePrice();
 			 statement = Statements.getPrepareStatement(query);
 			 statement.setString(1, type);
-			 ResultSet rs = statement.executeQuery();
+			  rs = statement.executeQuery();
 			out.println("<div align= 'center'>");
 			   out.println("<h2>Select your plan</h2>");
 			   out.println(" <table border='5px'>");
@@ -64,7 +69,24 @@ public class ShowPriceChart extends HttpServlet{
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}finally{
+			if(out !=null){
+			      out.close();	
+				}
+				try {
+					if(statement != null){
+							statement.close();
+						} 
+					if(rs != null){
+						rs.close();
+					}
+					Statements.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}catch (Exception e) {
+					e.printStackTrace();
+			 }
+		   }
 
 	  }
 }

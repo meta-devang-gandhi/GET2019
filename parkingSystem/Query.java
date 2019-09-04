@@ -1,5 +1,8 @@
 package com.parkingSystem;
 
+/**
+ *Class have database query. 
+ */
 public class Query {
    
 	 protected static String getOrganizationId(String organization)
@@ -42,7 +45,7 @@ public class Query {
 	 
 	 protected static String getEmployeeInformation()
 	 {
-		 String query = "SELECT e.FullName, e.email,e.ContactNumber,v.Type,v.Number, v.Identification FROM Employees e " 
+		 String query = "SELECT e.FullName, e.email,e.ContactNumber,e.OrganizationId,v.Type,v.Number, v.Identification FROM Employees e " 
                           +" INNER JOIN Vehicle v "
                            +" ON e.Id = v.EmployeeId "
                             +" WHERE e.Id = ? ";
@@ -61,5 +64,11 @@ public class Query {
 		 		          + "v.Identification = ? "
 		 		          + "WHERE e.Id = ? ";
 		 return query;
+	 }
+	 
+	 protected static String getFriensList()
+	 {
+		 String query = "SELECT Id, FullName, Email, ContactNumber FROM Employees WHERE OrganizationId = ? AND Id != ?";
+		 return query; 
 	 }
 }

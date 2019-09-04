@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *Servlet for register the employee on data base.
+ */
 @WebServlet("/RegisterEmployee")
 public class RegisterEmployeeServlet extends HttpServlet{
 
@@ -20,6 +23,8 @@ public class RegisterEmployeeServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
+		PreparedStatement statement = null;
+		ResultSet rs = null;
 		try {
 		    String name = request.getParameter("name").trim();
 		    String email = request.getParameter("email").trim();
@@ -28,12 +33,12 @@ public class RegisterEmployeeServlet extends HttpServlet{
 		    long  contactNumber = Long.parseLong(request.getParameter("ContactNumber"));
 		    String organization = request.getParameter("organization");
 		
-		    PreparedStatement statement = null;
+		     statement = null;
 		 
 		    String query1 = Query.getOrganizationId(organization); 
 		    
 		    statement = Statements.getPrepareStatement(query1);
-		    ResultSet rs = statement.executeQuery(query1);
+		     rs = statement.executeQuery(query1);
 		    int organizationId = 0 ;
 		    while(rs.next()) {
 		    	organizationId = rs.getInt("Id");
@@ -41,12 +46,12 @@ public class RegisterEmployeeServlet extends HttpServlet{
 		    if(rs != null){
 			rs.close();
 		    }
-		    
+		    statement.close();
 		    Statements.close();
 		    
 		    String query2 = Query.insertEmployeeDetails();
 			statement = Statements.getPrepareStatement(query2);
-			
+			statement.close();
 			statement.setString (1, name);
 			statement.setString (2, email);
 			statement.setString (3, gender);
@@ -83,6 +88,20 @@ public class RegisterEmployeeServlet extends HttpServlet{
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		} finally{
+				try {
+					if(statement != null){
+							statement.close();
+						} 
+					if(rs != null){
+						rs.close();
+					}
+					Statements.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}catch (Exception e) {
+					e.printStackTrace();
+			 }
+		   }
     }
 }
