@@ -8,7 +8,7 @@ import com.metacube.EADSESSION7.Service.IMailSender;
 public class SmtpMailSender implements IMailSender {
 
 	@Override
-	//Method to return smtp type mail.
+	//Method to send smtp type mail.
 	public String sendMail() {
 		return "Smtp Mail send";
 	}
