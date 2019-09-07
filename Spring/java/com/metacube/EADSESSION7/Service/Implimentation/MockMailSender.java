@@ -8,7 +8,7 @@ import com.metacube.EADSESSION7.Service.IMailSender;
 public class MockMailSender implements IMailSender {
 
 	@Override
-	//Method to return mock type mail.
+	//Method to send mock type mail.
 	public String sendMail() {
 		return "Mock mail send";
 	}
