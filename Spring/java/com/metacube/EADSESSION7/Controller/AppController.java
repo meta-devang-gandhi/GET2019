@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.metacube.EADSESSION7.Service.IMailSender;
 
+/**
+* It is a controller class. 
+*It have different-2 type of annotation for call config class. 
+**/
 //@Controller
 //@ResponseBody
 @RestController
