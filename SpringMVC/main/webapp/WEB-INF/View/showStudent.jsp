@@ -23,8 +23,8 @@
 		</tr>
 		<c:forEach items="${students}" var="student">
 			<tr>
-				<td>${student.getFirstName}</td>
-				<td>${student.getLastName}</td>
+				<td>${student.getFirstName()}</td>
+				<td>${student.getLastName()}</td>
 				<td>${student.getFatherName()}</td>
 				<td>${student.getEmail()}</td>
 				<td>${student.getStudentClass()}</td>
