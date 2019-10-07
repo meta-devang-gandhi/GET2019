@@ -210,11 +210,6 @@ a:focus {
     color: orange;
 }
 
-body {
-    --table-width: 100%;
-    /* Or any value, this will change dinamically */
-}
-
 .newUserListIcons {
     width: 40px;
     height: 40px;
