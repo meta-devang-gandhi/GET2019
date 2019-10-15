@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
 import { generateGuid } from './generateGuid';
 import { Task } from './task-model';
 
@@ -8,8 +7,7 @@ import { Task } from './task-model';
     providedIn: 'root'
 })
 export class TaskModelService {
-    [x: string]: any;
-
+  
     taskList: Task[] = [];
     obj: JSON;
     task1: Task;
@@ -101,10 +99,5 @@ export class TaskModelService {
                 }
             }
         }
-    }
-
-    private handleError(error: any) {
-        console.error(error);
-        return throwError(error);
     }
 }
