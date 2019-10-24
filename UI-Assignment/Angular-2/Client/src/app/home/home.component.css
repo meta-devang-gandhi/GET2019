@@ -1,0 +1,9 @@
+.categoryList {
+    position: fixed;
+    left: 0;
+    margin-top: 3rem;
+}
+
+.productList {
+    position: relative;
+}

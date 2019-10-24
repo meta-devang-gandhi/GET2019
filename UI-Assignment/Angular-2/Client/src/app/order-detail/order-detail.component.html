@@ -1,0 +1,28 @@
+<div>
+    <h1>
+        Order details
+    </h1>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of orderDetailList">
+                <td><img class="img-responsive" src="assets/images/{{item.imagePath}}"></td>
+                <td>{{item.name}}</td>
+                <td>
+                    {{item.quantity}}
+                </td>
+
+                <td>${{item.unitPrice * item.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
