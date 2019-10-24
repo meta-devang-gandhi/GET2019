@@ -1,0 +1,66 @@
+.header{
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+}
+.sign-up a{
+    margin-left : 10px;
+}
+
+ .header-text{
+     font-family: "Playfair Display",Georgia,"Times New Roman", serif;
+    font-size: 35px;
+}
+
+.header-text:hover{
+    text-decoration: none;
+}
+
+.nav-bar{
+    position: relative;
+    height: 2.75rem;       
+    overflow : hidden;
+    text-align : center
+}
+
+.display-4 {
+    font-size: 3rem;
+  }
+  h1, h2 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
+
+  .nav-bar .nav{
+    margin-top: -1px;
+    padding-bottom: 1rem;
+}
+.blog-title {
+    margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .blog-description {
+    font-size: 1.1rem;
+    color: #999;
+  }
+
+
+  .blog-pagination {
+    margin-bottom: 4rem;
+  }
+  .blog-pagination > .btn {
+    border-radius: 2rem;
+  }
+
+  .blog-post {
+    margin-bottom: 4rem;
+  }
+  .blog-post-title {
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+  }
+  .blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: #999;
+  }
+  
+  

@@ -1,0 +1,202 @@
+<!--
+    It is web page for metacube parking system.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <title> Metacube Parking System</title>
+</head>
+
+<body>
+    <div class="nav">
+        <span><a href="#addEmployee">Add Employee</a>&nbsp;</span>
+        <span><a href="#addVehicle">Add Vehicle</a>&nbsp;</span>
+        <span><a href="#feedback">Feedback</a>&nbsp;</span>
+        <span><a href="#price">Pricing</a>&nbsp;</span>
+    </div>
+
+    <div class="hadding">
+        <h1 align="center ">Welcome to Metacube Parking System</h1>
+    </div>
+    <!--
+        Employee registration start.
+    -->
+    <div class="sub-Hadding" id="addEmployee">
+        <div>
+            <h2>Employee Details</h2>
+        </div>
+    </div>
+    <div class="section" id="employee-section">
+        <form action="" name="registrationForm" method="GET">
+            <h2>Employee Registration</h2>
+            <label>Full name :</label>
+            <input type="text" name="name" id="name" pattern="[A-Za-z]{3,}" required />
+            <br /><br />
+
+            <label>Email :</label>
+            <input type="email" id="email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required />
+            <br /><br />
+
+            <label>Gender :</label>
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female
+            <input type="radio" name="gender" value="other" /> Other
+            <br /><br />
+
+            <label>Password :</label>
+            <input type="password" id="password" name="password"
+                pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}" required />
+            <br /><br />
+
+            <label>Confirm Password :</label>
+            <input type="password" id="confirmPassword" name="Confirm password" required />
+            <br /><br />
+
+            <label> Contact Number :</label>
+            <input type="number" id="contact" name="ContactNumber" pattern="(7|8|9)\d{9}" required />
+            <br /><br />
+
+            <input class="button" type="submit" value="Submit" />
+        </form>
+    </div>
+    <!--
+        Employee registration end.
+    -->
+
+    <!--
+        Vehicle form start
+    -->
+    <div class="sub-Hadding" id="addVehicle">
+        <div>
+            <h2>Vehicle Details</h2>
+        </div>
+    </div>
+    <div class="section" id="vehicle-section">
+        <form action="" name="VehicleDetails" method="GET">
+            <h2>Vehicle Details Form</h2>
+            <label>Vehicle Name :</label>
+            <input id="vehicleName" type="text" name="vehicleName" pattern="[A-Za-z]{3,}" required />
+            <br /><br />
+            <label>Type : </label>
+            <select id="type" value="type" required>
+                <option>Select Type</option>
+                <option value="cycle">Cycle</option>
+                <option value="motorCycle">Motor Cycle</option>
+                <option value="fourWheelers">Four Wheelers </option>
+            </select>
+            <br /><br />
+
+            <label> Vehicle Number :</label>
+            <input id="vehicleNumber" type="text" name="vehicleNumber" pattern="[A-Z][A-Z]\d\d[A-Z][A-Z]\d{4}"
+                required />
+            <br /><br />
+
+            <label>EmployeeId :</label>
+            <input id="empId" type="text" name="empId" required />
+            <br /><br />
+
+            <label>Indentification :</label>
+            <textarea cols="20" name="identification"></textarea><br /><br />
+
+            <input class="button" type="submit" value="Add Vehicle" />
+    </div>
+    <!--
+        Vehicle form end
+    -->
+
+    <!-- 
+        Feedback form srart.
+     -->
+    <div class="sub-Hadding" id="feedback">
+        <div>
+            <h2>Feedback</h2>
+        </div>
+    </div>
+    <div class="section" id="feedback-section">
+        <form action="" method="GET" name="FeedbackForm">
+            <h2>Get In Touch</h2>
+
+            <label>Name :</label>
+            <input type="text" name="name" id="name" pattern="[A-Za-z]{3,}" required />
+            <br /><br />
+
+            <label>Email :</label>
+            <input type="email" name="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required />
+            <br /><br />
+
+            <label>Subject :</label>
+            <input type="text" name="subject" id="subject " required />
+            <br /><br />
+
+            <label>Message :</label>
+            <textarea cols="20" name="message" required></textarea>
+            <br /><br />
+
+            <input class="button" type="submit" value="Send feedback" />
+        </form>
+    </div>
+    <!-- 
+        Feedback form end.
+     -->
+
+    <!--
+          price section start.
+        -->
+    <div class="sub-Hadding" id="price">
+        <div>
+            <h2>Employee's Vehicle Pass</h2>
+        </div>
+    </div>
+    <div class="section" id="price-section">
+        <div class="price">
+            <!-- Cycle Pricing -->
+            <div id="cycle" class="vehicle-type">
+                <h2>Cycle</h2>
+
+                <span><b>$100</b></span> <br />
+                <span><b>/month</b></span> <br /><br />
+
+                <span><em>$5 Daily</em></span> <br />
+                <span><em>$100 Monthly</em></span> <br />
+                <span><em>$500 Yearly</em></span><br /><br />
+                <input class="price-button" type="button" value="Purchase" />
+            </div>
+
+            <!-- MotorCycle Pricing -->
+            <div id="motorcycle" class="vehicle-type">
+                <h2>MotorCycle</h2>
+                <span><b>$200</b></span> <br />
+                <span><b>/month</b></span> <br /><br />
+                <span><em>$10 Daily</em></span> <br />
+                <span><em>$200 Monthly</em></span> <br />
+                <span><em>$1000 Yearly</em></span><br /><br />
+                <input class="price-button" type="button" value="Purchase" />
+            </div>
+
+            <!-- FourWheeler Pricing -->
+            <div id="fourwheeler" class="vehicle-type">
+                <h2>Four Wheelers</h2>
+                <span><b>$500</b></span> <br />
+                <span><b>/month</b></span> <br /><br />
+                <span><em>$20 Daily</em></span> <br />
+                <span><em>$500 Monthly</em></span> <br />
+                <span><em>$3500 Yearly</em></span><br /><br />
+                <input class="price-button" type="button" value="Purchase" />
+            </div>
+        </div>
+    </div>
+    <!--
+          price section end.
+      -->
+</body>
+
+</html>
