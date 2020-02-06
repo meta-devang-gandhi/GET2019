@@ -1,0 +1,120 @@
+<!--
+    It is web page for metacube parking system.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="validation.js"></script>
+    <title> Metacube Parking System</title>
+</head>
+<body>
+    <h1 align = "center ">Welcome to Metacube Parking System</h1>
+    <!--
+        Register form for employee.
+    -->
+    <div align="center" id="employeeRegistration">
+        <form action="" name="registrationForm" method = "GET"> 
+                <h2 >Employee Registration</h1>
+                Full name:
+                <input type="text" name="name" id="name"  onchange="fullNameValidation()" required>
+                <br><br>
+
+                Email :
+                <input type="email" id="email" name="email" onchange="emailValidation()" required>
+                <br><br>
+
+                Gender :
+                <input type="radio" name="gender" value="male" checked> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other
+                <br><br>
+
+                Password :
+                <input type="password" id="password" name="password" onchange="passwordValidation()" required>
+                <br><br>
+
+                Confirm Password :
+                <input type="password" id ="confirmPassword" name="Confirm password" onchange="confirmPasswordValidation()" required>
+                <br><br>
+
+                Contact Number :
+                <input type="text" id="contact" name="Contact Number" onchange = "contactValidation()" required>
+                <br><br>
+
+                <input type="submit" value="Submit" onclick="submitData()">
+          </form> 
+    </div>
+   
+    <!--
+        Form to add vehicle of employee.
+    -->
+    <div id="addVehicle" align ="center">
+            <form action="" method="GET">
+                <h2>Add Vehicle</h2>
+                Vehicle Name: 
+                <input id="vehicleName" type="text"  name="vehicleName" required>
+                </br></br>
+                Type :
+                <select id="type" value ="type" onchange="showPrice()">
+                        <option value="type" >type</option>
+                        <option value="cycle" >Cycle</option>
+                        <option value="motorCycle" >MotorCycle</option>
+                        <option value="fourWheelers" >Four Wheelers </option>
+                </select>
+                <br><br>
+
+                Vehicle Number:
+                <input id="vehicleNumber" type="text" name="vehicleNumber" required>
+                </br></br>
+
+                EmployeeId:
+                <input id="empId" type="text" name= "empId" required>
+                </br></br>
+                
+                Indentification:
+                <textarea   cols="20"></textarea></br></br>
+
+                <input type="submit" value="Add Vehicle" onclick="registerVehicle()" >
+        </div>
+
+        <!--
+            This div section to show the price sheet.
+            and generate the pass for parking.
+        -->
+            <div id="tableForPass" style="display:none" align = "center">
+                <h2>Select your plan</h2>
+                <table border="5px">
+                    <tr>
+                        <th>Plan</th>
+                        <th>Price in INR</th>
+                    </tr>
+                    <tr>
+                        <td>Daily</td>
+                        <td id="dailyPrice"> </td>
+                    </tr>
+                    <tr>
+                        <td>Montly</td>
+                        <td id="monthlyPrice"></td>
+                    </tr>
+                    <tr>
+                        <td>Yearly</td>
+                        <td id="yearlyPrice"></td>
+                    </tr>
+                </table>
+                <br>
+               
+                    <label><input type="radio" id="pricePlan" name="pricePlan" value="daily"
+                        onchange = "getPassOption(this.value)">Daily</label>
+                    <label><input type="radio" id="pricePlan" name="pricePlan" value="monthly"
+                        onchange = "getPassOption(this.value)">Monthly</label>
+                    <label><input type="radio" id="pricePlan" name="pricePlan" value="yearly"
+                        onchange = "getPassOption(this.value)">Yearly</label>
+                        <br> <br>
+
+                        <input type="submit" value="get Pass" onclick="getPass()" >
+                </div>
+</body>
+</html>

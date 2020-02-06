@@ -1,0 +1,42 @@
+<!-- 
+    Student registration form.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Student registration page</title>
+</head>
+<body align= "center"> 
+      <h2>Student Registration</h2>
+      <form action = "addStudent" method = "post">
+          
+                First Name:
+                <input type="text" name="firstName" id="firstName"  required>
+                <br></br>
+
+                 Last Name:
+                <input type="text" name="lastName" id="lastName"  required>
+                <br></br>
+                
+                 Father Name:
+                <input type="text" name="fatherName" id="fatherName"  required>
+                <br></br>
+                 
+                Email :
+                <input type="email" id="email" name="email"  required>
+                <br></br>
+
+                  Class:
+                <input type="number" name="class" id="class" min="1" max="12" required>
+                <br></br>
+                
+                  Age:
+                <input type="number" name="age" id="age"  required>
+                <br></br>
+
+                <input type="submit" value="Submit" >
+
+        </form>
+</body>
+</html>

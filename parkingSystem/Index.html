@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="ISO-8859-1">
+        <title>Insert title here</title>
+          <script src="Validation.js"></script>
+   </head>
+   
+    <body>
+        <div align="center">
+        <form action="RegisterEmployee"  method = "post"> 
+                <h2 >Employee Registration</h2>
+                Full name:
+                <input type="text" name="name" id="name"  onchange="fullNameValidation()" required/>
+                <br></br>
+
+                Email :
+                <input type="email" id="email" name="email" onchange="emailValidation()" required/>
+                <br></br>
+
+                Gender :
+                <input type="radio" name="gender" value="male" checked> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other
+                <br></br>
+
+                Password :
+                <input type="text" id="password" name="password"  onchange="passwordValidation()" required/>
+                <br></br>
+
+                Confirm Password :
+                <input type="text" id ="confirmPassword" name="ConfirmPassword" onchange="confirmPasswordValidation()" required/>
+                <br></br>
+
+                Contact Number :
+                <input type="Number" id="contact" name="ContactNumber"  onchange="contactValidation()" required/>
+                <br></br>
+                 
+                 Organization:
+                 <select name="organization">
+                     <option  value="metacube">Metacube</option>
+                     <option  value="facebook">Facebook</option>
+                     <option value="instagram">Instagram</option>
+                     <option  value="google">Google</option>
+                 </select>
+                 <br></br>
+                <input type="submit" value="Submit" />
+          </form> 
+          <p>If user already registered then <a href="LoginPage.html">Login</a></p>
+    </div> 
+    </body>
+</html>
